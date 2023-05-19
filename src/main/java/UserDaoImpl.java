@@ -1,6 +1,5 @@
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
@@ -20,14 +19,12 @@ public class UserDaoImpl implements UserDao {
             return session.get(User.class,id);
         }
     }
-
     @Override
     public List<User> getAllUser() {
         try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
             return session.createQuery("FROM User").list();
         }
     }
-
     @Override
     public User updateUser(User user) {
         User update;
@@ -48,7 +45,6 @@ public class UserDaoImpl implements UserDao {
             session.close();
         }
     }
-
     @Override
     public void addRoleToUser(User user, Role role) {
         try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
