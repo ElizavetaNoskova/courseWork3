@@ -1,5 +1,4 @@
 import lombok.*;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -24,5 +23,4 @@ public class User {
     private LocalDateTime modified;
     @ManyToMany
     private Set<Role> roles = new HashSet<>();
-
 }

@@ -3,7 +3,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Application {
-
     static UserDao userDao = new UserDaoImpl();
     static RoleDao roleDao = new RoleDaoImpl();
 
@@ -12,7 +11,6 @@ public class Application {
         Role analyst = Role.builder().role(RoleType.ANALYST).build();
         Role tester = Role.builder().role(RoleType.TESTER).build();
         Role manager = Role.builder().role(RoleType.MANAGER).build();
-
         roleDao.add(developer);
         roleDao.add(analyst);
         roleDao.add(tester);

@@ -3,10 +3,10 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class RoleDaoImpl implements RoleDao{
+public class RoleDaoImpl implements RoleDao {
     @Override
     public Role add(Role role) {
-        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
+        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.persist(role);
             transaction.commit();
@@ -17,7 +17,7 @@ public class RoleDaoImpl implements RoleDao{
 
     @Override
     public Role getById(int id) {
-        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()){
+        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             return session.get(Role.class, id);
         }
     }
@@ -31,7 +31,7 @@ public class RoleDaoImpl implements RoleDao{
 
     @Override
     public void deleteRole(Role role) {
-        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.delete(role);
             transaction.commit();
